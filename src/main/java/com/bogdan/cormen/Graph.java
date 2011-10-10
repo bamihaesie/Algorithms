@@ -1,13 +1,12 @@
 package com.bogdan.cormen;
 
+import sun.rmi.transport.ObjectTable;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author bogdan
@@ -117,9 +116,40 @@ public class Graph {
         return sb.toString();
     }
 
+    public static void BFS(Graph g, Node s) {
+        for (Node n : g.V) {
+            if (!n.equals(s)) {
+                n.color = NodeColor.WHITE;
+                n.distance = Integer.MAX_VALUE;
+                n.parent = null;
+            }
+        }
+
+        s.color = NodeColor.GREY;
+        s.distance = 0;
+        s.parent = null;
+
+        Queue<Node> Q = new LinkedList<Node>();
+        Q.offer(s);
+
+        while (!Q.isEmpty()) {
+            Node u = Q.element();
+            for(Node v : g.getAdjListForNode(u)) {
+                if (v.color == NodeColor.WHITE) {
+                    v.color = NodeColor.GREY;
+                    v.distance = u.distance + 1;
+                    v.parent = u;
+                    Q.offer(v);
+                }
+            }
+            u.color = NodeColor.BLACK;
+        }
+
+    }
+
 }
 
-class Node {
+class Node implements Comparable<Node>{
     Integer id;
     NodeColor color;
     Integer distance;
@@ -129,12 +159,30 @@ class Node {
         this.id = id;
     }
 
+    public int compareTo(Node otherNode) {
+        return this.id.compareTo(otherNode.id);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof Node) {
+            Node otherNode = (Node)object;
+            if (this.id == otherNode.id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "" + id;
     }
-
-
 }
 
 enum NodeColor {

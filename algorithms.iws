@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5d338806-3753-46e1-91d2-64a47d82b4ca" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bogdan/cormen/Graph.java" afterPath="$PROJECT_DIR$/src/main/java/com/bogdan/cormen/Graph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/bogdan/cormen/GraphTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/bogdan/cormen/GraphTest.java" />
     </list>
     <ignored path="algorithms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -221,7 +220,7 @@
       <file leaf-file-name="Graph.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bogdan/cormen/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="59" selection-start="1156" selection-end="1156" vertical-scroll-proportion="1.2959559">
+            <state line="133" column="56" selection-start="3437" selection-end="3437" vertical-scroll-proportion="0.5036765">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -250,8 +249,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/test/resources/com/bogdan/cormen/graph1.txt" />
         <option value="$PROJECT_DIR$/src/test/resources/graph1.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bogdan/cormen/Graph.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/bogdan/cormen/GraphTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bogdan/cormen/Graph.java" />
       </list>
     </option>
   </component>
@@ -842,7 +841,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bogdan/cormen/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="59" selection-start="1156" selection-end="1156" vertical-scroll-proportion="1.2959559">
+        <state line="133" column="56" selection-start="3437" selection-end="3437" vertical-scroll-proportion="0.5036765">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
