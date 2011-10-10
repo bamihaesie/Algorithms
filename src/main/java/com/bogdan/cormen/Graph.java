@@ -1,14 +1,13 @@
 package com.bogdan.cormen;
 
-import sun.net.idn.StringPrep;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static junit.framework.Assert.fail;
 
 /**
  * @author bogdan
@@ -16,8 +15,8 @@ import static junit.framework.Assert.fail;
 public class Graph {
 
     private boolean directed;
-    public List<Integer> V;
-    public Map<Integer, List<Integer>> E;
+    public List<Node> V;
+    public Map<Node, List<Node>> E;
 
     public Graph(File inputFile, boolean directed) {
         this.directed = directed;
@@ -28,12 +27,12 @@ public class Graph {
         }
     }
 
-    public List<Integer> getAdjListForNode(Integer id) {
-        return E.get(id);
+    public List<Node> getAdjListForNode(Node node) {
+        return E.get(node);
     }
 
-    public boolean isEdge(Integer u, Integer v) {
-        List<Integer> adjListForU = getAdjListForNode(u);
+    public boolean isEdge(Node u, Node v) {
+        List<Node> adjListForU = getAdjListForNode(u);
         if (adjListForU.contains(v)) {
             return true;
         }
@@ -48,31 +47,34 @@ public class Graph {
         String line = br.readLine();
         numberOfVertices = Integer.parseInt(line.trim());
 
-        V = new ArrayList<Integer>();
+        V = new ArrayList<Node>();
         V.add(null);
         for (int i=1; i <= numberOfVertices; i++) {
-            V.add(new Integer(i));
+            V.add(new Node(i));
         }
 
-        E = new HashMap<Integer, List<Integer>>();
+        E = new HashMap<Node, List<Node>>();
         while ((line = br.readLine()) != null ) {
             String[] tokens = line.split(" ");
-            Integer u = Integer.valueOf(tokens[0]);
-            Integer v = Integer.valueOf(tokens[1]);
+            Integer uId = Integer.valueOf(tokens[0]);
+            Integer vId = Integer.valueOf(tokens[1]);
 
-            if (E.containsKey(V.get(u))) {
-                E.get(V.get(u)).add(v);
+            Node u = V.get(uId);
+            Node v = V.get(vId);
+
+            if (E.containsKey(u)) {
+                E.get(u).add(v);
             } else {
-                List<Integer> adjList = new ArrayList<Integer>();
+                List<Node> adjList = new ArrayList<Node>();
                 adjList.add(v);
                 E.put(u, adjList);
             }
 
             if (directed == false) {
-                if (E.containsKey(V.get(v))) {
-                    E.get(V.get(v)).add(u);
+                if (E.containsKey(v)) {
+                    E.get(v).add(u);
                 } else {
-                    List<Integer> adjList = new ArrayList<Integer>();
+                    List<Node> adjList = new ArrayList<Node>();
                     adjList.add(u);
                     E.put(v, adjList);
                 }
@@ -81,15 +83,16 @@ public class Graph {
 
     }
 
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
         sb.append("V = [");
         if (V != null) {
-            for (Integer v : V) {
+            for (Node v : V) {
                 if (v != null) {
                     sb.append(v);
-                    if (v != V.size() - 1) {
+                    if (v.id != V.size() - 1) {
                         sb.append(", ");
                     }
                 }
@@ -99,9 +102,9 @@ public class Graph {
 
         sb.append("E = [");
         if (E != null) {
-            for (Integer key : E.keySet()) {
-                List<Integer> adjList = E.get(key);
-                for (Integer adj : adjList) {
+            for (Node key : E.keySet()) {
+                List<Node> adjList = E.get(key);
+                for (Node adj : adjList) {
                     sb.append(key + "->" + adj);
                     sb.append(", ");
                 }
@@ -115,3 +118,28 @@ public class Graph {
     }
 
 }
+
+class Node {
+    Integer id;
+    NodeColor color;
+    Integer distance;
+    Node parent;
+
+    public Node(Integer id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "" + id;
+    }
+
+
+}
+
+enum NodeColor {
+    WHITE,
+    GREY,
+    BLACK
+}
+

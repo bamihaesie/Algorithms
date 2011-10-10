@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d338806-3753-46e1-91d2-64a47d82b4ca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/graph1.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/algorithms.iml" afterPath="$PROJECT_DIR$/algorithms.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/algorithms.ipr" afterPath="$PROJECT_DIR$/algorithms.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/algorithms.iws" afterPath="$PROJECT_DIR$/algorithms.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bogdan/cormen/Graph.java" afterPath="$PROJECT_DIR$/src/main/java/com/bogdan/cormen/Graph.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/bogdan/cormen/GraphTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/bogdan/cormen/GraphTest.java" />
     </list>
@@ -207,7 +203,7 @@
       <file leaf-file-name="GraphTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/bogdan/cormen/GraphTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="0" selection-start="1715" selection-end="1715" vertical-scroll-proportion="0.0">
+            <state line="24" column="22" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -225,7 +221,7 @@
       <file leaf-file-name="Graph.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bogdan/cormen/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="0" selection-start="3054" selection-end="3054" vertical-scroll-proportion="2.7857144">
+            <state line="47" column="59" selection-start="1156" selection-end="1156" vertical-scroll-proportion="1.2959559">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -254,8 +250,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/test/resources/com/bogdan/cormen/graph1.txt" />
         <option value="$PROJECT_DIR$/src/test/resources/graph1.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/com/bogdan/cormen/GraphTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bogdan/cormen/Graph.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/bogdan/cormen/GraphTest.java" />
       </list>
     </option>
   </component>
@@ -524,7 +520,13 @@
       </option>
       <envs />
       <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="45239" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -693,22 +695,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="24" width="1315" height="1214" extended-state="0" />
+    <frame x="150" y="55" width="2048" height="1128" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39918533" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39822134" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30421376" sideWeight="0.6700611" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17350528" sideWeight="0.63839287" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3299389" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36160713" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -833,14 +835,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/bogdan/cormen/GraphTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="1715" selection-end="1715" vertical-scroll-proportion="0.0">
+        <state line="24" column="22" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bogdan/cormen/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="0" selection-start="3054" selection-end="3054" vertical-scroll-proportion="2.7857144">
+        <state line="47" column="59" selection-start="1156" selection-end="1156" vertical-scroll-proportion="1.2959559">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -28,18 +28,20 @@ public class GraphTest {
         Graph g = new Graph(graphFile1, false);
         assertNotNull(g);
 
+        System.out.println(g);
+
         assertNotNull(g.V);
         assertEquals(g.V.size(), 1+5);
         assertTrue(g.V.get(0) == null);
         for (int i=1; i<=5; i++) {
-            assertEquals(new Integer(i), g.V.get(i));
+            assertEquals(new Integer(i), g.V.get(i).id);
         }
 
         assertNotNull(g.E);
         assertEquals(5, g.E.size());
         int[] expectedSizes = { -1, 2, 4, 2, 3, 3 };
         for (int i=1; i<=5; i++) {
-            List<Integer> adjList = g.E.get(i);
+            List<Node> adjList = g.E.get(g.V.get(i));
             assertEquals(expectedSizes[i], adjList.size());
         }
     }
@@ -49,18 +51,20 @@ public class GraphTest {
         Graph g = new Graph(graphFile1, true);
         assertNotNull(g);
 
+        System.out.println(g);
+
         assertNotNull(g.V);
         assertEquals(g.V.size(), 1+5);
         assertTrue(g.V.get(0) == null);
         for (int i=1; i<=5; i++) {
-            assertEquals(new Integer(i), g.V.get(i));
+            assertEquals(new Integer(i), g.V.get(i).id);
         }
 
         assertNotNull(g.E);
         assertEquals(4, g.E.size());
         int[] expectedSizes = { -1, 2, 3, 1, 1 };
         for (int i=1; i<=4; i++) {
-            List<Integer> adjList = g.E.get(i);
+            List<Node> adjList = g.E.get(g.V.get(i));
             assertEquals(expectedSizes[i], adjList.size());
         }
     }
