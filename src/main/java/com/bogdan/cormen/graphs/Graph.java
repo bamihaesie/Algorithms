@@ -1,6 +1,4 @@
-package com.bogdan.cormen;
-
-import sun.rmi.transport.ObjectTable;
+package com.bogdan.cormen.graphs;
 
 import java.io.BufferedReader;
 import java.io.File;

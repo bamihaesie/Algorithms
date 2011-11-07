@@ -1,9 +1,9 @@
-package com.bogdan.cormen;
+package com.bogdan.cormen.graphs;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.File;
 import java.net.URL;
 import java.util.List;
 
