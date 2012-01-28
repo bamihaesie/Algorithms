@@ -10,7 +10,7 @@ import java.util.List;
 import static junit.framework.Assert.*;
 
 /**
- * Unit test for Graph
+ * @author bogdan
  */
 public class GraphTest {
 
@@ -30,18 +30,18 @@ public class GraphTest {
 
         System.out.println(g);
 
-        assertNotNull(g.V);
-        assertEquals(g.V.size(), 1+5);
-        assertTrue(g.V.get(0) == null);
+        assertNotNull(g.getVertices());
+        assertEquals(g.getVertices().size(), 1+5);
+        assertTrue(g.getVertices().get(0) == null);
         for (int i=1; i<=5; i++) {
-            assertEquals(new Integer(i), g.V.get(i).id);
+            assertEquals(new Integer(i), g.getVertices().get(i).getId());
         }
 
-        assertNotNull(g.E);
-        assertEquals(5, g.E.size());
+        assertNotNull(g.getAdjList());
+        assertEquals(5, g.getAdjList().size());
         int[] expectedSizes = { -1, 2, 4, 2, 3, 3 };
         for (int i=1; i<=5; i++) {
-            List<Node> adjList = g.E.get(g.V.get(i));
+            List<Node> adjList = g.getAdjList().get(g.getVertices().get(i));
             assertEquals(expectedSizes[i], adjList.size());
         }
     }
@@ -53,18 +53,18 @@ public class GraphTest {
 
         System.out.println(g);
 
-        assertNotNull(g.V);
-        assertEquals(g.V.size(), 1+5);
-        assertTrue(g.V.get(0) == null);
+        assertNotNull(g.getVertices());
+        assertEquals(g.getVertices().size(), 1+5);
+        assertTrue(g.getVertices().get(0) == null);
         for (int i=1; i<=5; i++) {
-            assertEquals(new Integer(i), g.V.get(i).id);
+            assertEquals(new Integer(i), g.getVertices().get(i).getId());
         }
 
-        assertNotNull(g.E);
-        assertEquals(4, g.E.size());
+        assertNotNull(g.getAdjList());
+        assertEquals(4, g.getAdjList().size());
         int[] expectedSizes = { -1, 2, 3, 1, 1 };
         for (int i=1; i<=4; i++) {
-            List<Node> adjList = g.E.get(g.V.get(i));
+            List<Node> adjList = g.getAdjList().get(g.getVertices().get(i));
             assertEquals(expectedSizes[i], adjList.size());
         }
     }

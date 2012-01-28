@@ -1,24 +1,56 @@
 package com.bogdan.cormen.graphs;
 
-class Node implements Comparable<Node>{
-    Integer id;
-    NodeColor color;
-    Integer distance;
-    Node parent;
+/**
+ * @author bogdan
+ */
+class Node implements Comparable<Node> {
+
+    private Integer id;
+    private NodeColor color;
+    private Integer distance;
+    private Node parent;
 
     public Node(Integer id) {
         this.id = id;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public NodeColor getColor() {
+        return color;
+    }
+
+    public void setColor(NodeColor color) {
+        this.color = color;
+    }
+
+    public Integer getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Integer distance) {
+        this.distance = distance;
+    }
+
+    public Node getParent() {
+        return parent;
+    }
+
+    public void setParent(Node parent) {
+        this.parent = parent;
+    }
+
     public int compareTo(Node otherNode) {
-        return this.id.compareTo(otherNode.id);
+        return this.getId().compareTo(otherNode.getId());
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (object instanceof Node) {
-            Node otherNode = (Node)object;
-            if (this.id == otherNode.id) {
+    public boolean equals(Object anotherObject) {
+        if (anotherObject instanceof Node) {
+            Node otherNode = (Node)anotherObject;
+            if (this.getId().equals(otherNode.getId())) {
                 return true;
             }
         }
@@ -27,12 +59,12 @@ class Node implements Comparable<Node>{
 
     @Override
     public int hashCode() {
-        return id;
+        return getId();
     }
 
     @Override
     public String toString() {
-        return "" + id;
+        return "" + getId();
     }
 }
 
