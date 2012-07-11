@@ -9,6 +9,15 @@ class Node implements Comparable<Node> {
     private NodeColor color;
     private Integer distance;
     private Node parent;
+    private boolean explored;
+
+    public boolean isExplored() {
+        return explored;
+    }
+
+    public void setExplored(boolean explored) {
+        this.explored = explored;
+    }
 
     public Node(Integer id) {
         this.id = id;
@@ -68,8 +77,4 @@ class Node implements Comparable<Node> {
     }
 }
 
-enum NodeColor {
-    WHITE,
-    GREY,
-    BLACK
-}
+

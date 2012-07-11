@@ -14,10 +14,12 @@ public class Graph {
     private boolean directed;
     private List<Node> vertices;
     private Map<Node, List<Node>> adjList;
+    private Map<Node, List<Node>> reverseAdjList;
 
     public Graph(File inputFile, boolean directed) {
         vertices = new ArrayList<Node>();
         adjList = new HashMap<Node, List<Node>>();
+        reverseAdjList = new HashMap<Node, List<Node>>();
         this.setDirected(directed);
         try {
             buildGraphFromFile(inputFile);
@@ -31,6 +33,19 @@ public class Graph {
                 new BufferedReader(new FileReader(inputFile));
         buildVerticesArray(bufferedReader);
         buildAdjList(bufferedReader);
+        addEmptyListForSinkNodes();
+    }
+
+    private void addEmptyListForSinkNodes() {
+        List<Node> emptyNodeList = new ArrayList<Node>();
+        for (Node vertex : vertices) {
+            if (adjList.get(vertex) == null) {
+                adjList.put(vertex, emptyNodeList);
+            }
+            if (reverseAdjList.get(vertex) == null) {
+                reverseAdjList.put(vertex, emptyNodeList);
+            }
+        }
     }
 
     private void buildVerticesArray(BufferedReader bufferedReader) throws IOException {
@@ -43,12 +58,15 @@ public class Graph {
     }
 
     private void buildAdjList(BufferedReader bufferedReader) throws IOException {
-        String line = "";
+        String line;
         while ((line = bufferedReader.readLine()) != null ) {
             Edge edge = readEdgeFromFileLine(line);
-            addEdgeToAdjList(edge.getU(), edge.getV());
-            if (directed == false) {
-                addEdgeToAdjList(edge.getV(), edge.getU());
+            if (directed) {
+                addEdgeToAdjList(adjList, edge.getU(), edge.getV());
+                addEdgeToAdjList(reverseAdjList, edge.getV(), edge.getU());
+            } else {
+                addEdgeToAdjList(adjList, edge.getV(), edge.getU());
+                addEdgeToAdjList(adjList, edge.getU(), edge.getV());
             }
         }
     }
@@ -60,13 +78,13 @@ public class Graph {
         return new Edge(u, v);
     }
     
-    private void addEdgeToAdjList(Node u, Node v) {
+    private void addEdgeToAdjList(Map<Node, List<Node>> adjList, Node u, Node v) {
         if (adjList.containsKey(u)) {
             adjList.get(u).add(v);
         } else {
             List<Node> neighbors = new ArrayList<Node>();
             neighbors.add(v);
-            this.adjList.put(u, neighbors);
+            adjList.put(u, neighbors);
         }
     }
 
@@ -74,8 +92,11 @@ public class Graph {
         return adjList.get(node);
     }
 
-    public boolean isDirected() {
-        return directed;
+    public List<Node> getAdjListForNode(Node node, boolean reverseEdges) {
+        if (reverseEdges) {
+            return reverseAdjList.get(node);
+        }
+        return adjList.get(node);
     }
 
     public void setDirected(boolean directed) {
@@ -88,14 +109,6 @@ public class Graph {
 
     public Map<Node, List<Node>> getAdjList() {
         return adjList;
-    }
-
-    public boolean isEdge(Node u, Node v) {
-        List<Node> adjListForU = getAdjListForNode(u);
-        if (adjListForU.contains(v)) {
-            return true;
-        }
-        return false;
     }
 
     @Override
@@ -120,8 +133,7 @@ public class Graph {
             for (Node key : adjList.keySet()) {
                 List<Node> adjList = this.adjList.get(key);
                 for (Node adj : adjList) {
-                    sb.append(key + "->" + adj);
-                    sb.append(", ");
+                    sb.append(key).append("->").append(adj).append(", ");
                 }
             }
         }
@@ -132,51 +144,4 @@ public class Graph {
         return sb.toString();
     }
 
-    public static void BFS(Graph g, Node s) {
-        for (Node n : g.vertices) {
-            if (!n.equals(s)) {
-                n.setColor(NodeColor.WHITE);
-                n.setDistance(Integer.MAX_VALUE);
-                n.setParent(null);
-            }
-        }
-
-        s.setColor(NodeColor.GREY);
-        s.setDistance(0);
-        s.setParent(null);
-
-        Queue<Node> Q = new LinkedList<Node>();
-        Q.offer(s);
-
-        while (!Q.isEmpty()) {
-            Node u = Q.element();
-            for(Node v : g.getAdjListForNode(u)) {
-                if (v.getColor() == NodeColor.WHITE) {
-                    v.setColor(NodeColor.GREY);
-                    v.setDistance(u.getDistance() + 1);
-                    v.setParent(u);
-                    Q.offer(v);
-                }
-            }
-            u.setColor(NodeColor.BLACK);
-        }
-    }
-}
-
-class Edge {
-
-    private Node u, v;
-
-    Edge (Node u, Node v) {
-        this.u = u;
-        this.v = v;
-    }
-
-    public Node getU() {
-        return u;
-    }
-
-    public Node getV() {
-        return v;
-    }
 }

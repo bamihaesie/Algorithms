@@ -31,8 +31,7 @@ public class NodeTest {
     }
     
     private Node createNode(int id) {
-        Node node = new Node(id);
-        return node;
+        return new Node(id);
     }
 
 }
